@@ -2,15 +2,15 @@ const express   = require('express');
 const jwt       = require('jsonwebtoken');
 const router    = express.Router();
 const User      = require('../models/users');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 // const db = "mongodb+srv://snpradeep6:f1jRGXIWgSlcZwqq@cluster11.qd1k2uq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster11";
-const db2 = "mongodb+srv://snpradeep6:f1jRGXIWgSlcZwqq@cluster11.qd1k2uq.mongodb.net/loggers_db"
+// const db2 = "mongodb+srv://snpradeep6:f1jRGXIWgSlcZwqq@cluster11.qd1k2uq.mongodb.net/loggers_db"
 
-const dbConnection = async () =>{
-    await mongoose.connect(db2)
-    console.log(`Connected with,${mongoose.connection.host}`);
-}
-dbConnection()
+// const dbConnection = async () =>{
+//     await mongoose.connect(db2)
+//     console.log(`Connected with,${mongoose.connection.host}`);
+// }
+// dbConnection()
 
 function verifyToken(req,res,next){
     if(!req.headers.authorization){
@@ -27,7 +27,7 @@ function verifyToken(req,res,next){
     next();
 }
 router.get('/',(req,res)=>{
-    res.send('From Route side');
+    res.send('From Route USER_API side');
 });
 router.get('/usersList',verifyToken,(req,res)=>{
     User.find().then((resp)=>{
