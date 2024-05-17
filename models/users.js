@@ -8,6 +8,7 @@ const loggerSchema = new Schema({
     uPass : String,
     uPhone : Number,
     uAPhone: Number
+    
 })
 
 module.exports = mongoose.model('loggers',loggerSchema,'loggers_db');
